@@ -203,12 +203,12 @@
    "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
    "appels": 8,
    "tronques": [],
-   "n": 107,
-   "postes": 130,
+   "n": 106,
+   "postes": 129,
    "par_metier": {
     "M1718": 31,
     "M1716": 11,
-    "M1705": 29,
+    "M1705": 28,
     "M1703": 7,
     "M1620": 21,
     "M1706": 5,
@@ -218,18 +218,18 @@
    "contrats": {
     "Apprentissage": 46,
     "Professionnalisation": 42,
-    "Apprentissage ou professionnalisation": 19
+    "Apprentissage ou professionnalisation": 18
    },
    "diplome": {
     "inconnu": 72,
-    "7": 14,
+    "7": 13,
     "5": 13,
     "6": 6,
     "4": 2
    },
    "sources": {
     "France Travail": 60,
-    "offres_emploi_lba": 28,
+    "offres_emploi_lba": 27,
     "RH Alternance": 7,
     "Meteojob": 5,
     "OPCO EP": 2,
@@ -264,7 +264,6 @@
     "inconnu": 1,
     "43": 1,
     "45": 1,
-    "62": 1,
     "63": 1,
     "17": 1,
     "59": 1,
@@ -284,13 +283,13 @@
     "Île-de-France": 49
    },
    "fraicheur": {
-    "7 à 30 jours": 53,
+    "7 à 30 jours": 52,
     "1 à 3 mois": 30,
     "moins de 7 jours": 22,
     "plus de 3 mois": 2
    },
    "teletravail": {
-    "non précisé": 102,
+    "non précisé": 101,
     "onsite": 4,
     "hybrid": 1
    },
@@ -302,14 +301,14 @@
     "3 à 5 salariés": 5,
     "6 à 9 salariés": 5,
     "1 000 à 1 999 salariés": 3,
-    "50 à 99 salariés": 3,
     "100 à 199 salariés": 3,
+    "50 à 99 salariés": 2,
     "250 à 499 salariés": 2,
     "1 ou 2 salariés": 1,
     "2 000 à 4 999 salariés": 1
    },
    "venues_de_france_travail": 60,
-   "retrouvees_dans_france_travail": 51
+   "retrouvees_dans_france_travail": 60
   }
  ],
  "serie": [
@@ -336,7 +335,7 @@
   {
    "date": "2026-09-29",
    "canal": "lba",
-   "offres": 107
+   "offres": 106
   }
  ]
 }
