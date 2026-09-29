@@ -1,215 +1,336 @@
 {
-  "maj": "2026-09-29",
-  "metiers": [
-    {
-      "code": "M1718",
-      "libelle": "Chargé(e) de marketing digital"
-    },
-    {
-      "code": "M1716",
-      "libelle": "Directeur(trice) marketing digital"
-    },
-    {
-      "code": "M1705",
-      "libelle": "Responsable marketing"
-    },
-    {
-      "code": "M1703",
-      "libelle": "Chef(fe) de produit"
-    },
-    {
-      "code": "M1620",
-      "libelle": "Assistant(e) marketing"
-    },
-    {
-      "code": "M1706",
-      "libelle": "Chef(fe) de promotion des ventes"
-    },
-    {
-      "code": "M1430",
-      "libelle": "Chargé(e) d'études commerciales"
-    },
-    {
-      "code": "M1711",
-      "libelle": "Directeur(trice) du marketing"
-    }
-  ],
-  "canaux": [
-    {
-      "code": "france-travail",
-      "libelle": "France Travail",
-      "date": "2026-09-24",
-      "source": "France Travail — API Offres d'emploi v2",
-      "requete": "une requête codeROME par métier du groupe Marketing (8 métiers), France entière",
-      "n": 1518,
-      "postes": 1529,
-      "par_metier": {
-        "M1430": 299,
-        "M1703": 299,
-        "M1716": 270,
-        "M1705": 238,
-        "M1620": 148,
-        "M1718": 122,
-        "M1706": 94,
-        "M1711": 48
-      },
-      "alternance": 220,
-      "par_metier_alternance": {
-        "M1620": 71,
-        "M1705": 46,
-        "M1718": 42,
-        "M1716": 27,
-        "M1703": 14,
-        "M1706": 10,
-        "M1430": 8,
-        "M1711": 2
-      },
-      "contrats": {
-        "CDI": 887,
-        "Alternance": 220,
-        "Indépendant": 219,
-        "Intérim": 103,
-        "CDD": 88,
-        "Autre": 1
-      },
-      "diplome": {
-        "inconnu": 1406,
-        "7": 48,
-        "6": 39,
-        "5": 23,
-        "4": 2
-      },
-      "sources": {
-        "France Travail": 1518
-      },
-      "departements": {
-        "75": 179,
-        "92": 117,
-        "69": 68,
-        "inconnu": 68,
-        "59": 67,
-        "44": 58,
-        "13": 53,
-        "94": 43,
-        "78": 37,
-        "31": 33,
-        "93": 33,
-        "06": 31,
-        "91": 31,
-        "97": 31,
-        "33": 30,
-        "35": 29,
-        "38": 26,
-        "67": 22,
-        "77": 21,
-        "29": 18,
-        "34": 18,
-        "49": 17,
-        "60": 17,
-        "76": 16,
-        "27": 15,
-        "74": 15,
-        "79": 15,
-        "62": 14,
-        "83": 14,
-        "84": 14,
-        "85": 14,
-        "57": 13,
-        "50": 12,
-        "51": 12,
-        "26": 11,
-        "63": 11,
-        "68": 11,
-        "95": 11,
-        "14": 10,
-        "22": 10,
-        "42": 10,
-        "86": 10,
-        "01": 9,
-        "45": 9,
-        "56": 9,
-        "17": 8,
-        "21": 8,
-        "32": 8,
-        "37": 8,
-        "53": 8,
-        "12": 7,
-        "54": 7,
-        "66": 7,
-        "71": 7,
-        "72": 7,
-        "11": 6,
-        "19": 6,
-        "46": 6,
-        "64": 6,
-        "02": 5,
-        "18": 5,
-        "25": 5,
-        "40": 5,
-        "61": 5,
-        "87": 5,
-        "90": 5,
-        "03": 4,
-        "04": 4,
-        "07": 4,
-        "08": 4,
-        "10": 4,
-        "28": 4,
-        "30": 4,
-        "89": 4,
-        "16": 3,
-        "39": 3,
-        "41": 3,
-        "47": 3,
-        "65": 3,
-        "73": 3,
-        "80": 3,
-        "81": 3,
-        "82": 3,
-        "05": 2,
-        "55": 2,
-        "88": 2,
-        "15": 1,
-        "24": 1,
-        "36": 1,
-        "43": 1,
-        "52": 1,
-        "58": 1,
-        "70": 1
-      },
-      "zones": {
-        "Puy-de-Dôme": 11,
-        "Auvergne-Rhône-Alpes": 163,
-        "Île-de-France": 472
-      },
-      "fraicheur": {
-        "7 à 30 jours": 831,
-        "moins de 7 jours": 318,
-        "1 à 3 mois": 298,
-        "plus de 3 mois": 71
-      },
-      "teletravail": {
-        "non précisé": 1372,
-        "mentionné": 146
-      },
-      "salaire_affiche": 373
-    }
-  ],
-  "serie": [
-    {
-      "date": "2026-09-22",
-      "canal": "france-travail",
-      "offres": 1466
-    },
-    {
-      "date": "2026-09-23",
-      "canal": "france-travail",
-      "offres": 1485
-    },
-    {
-      "date": "2026-09-24",
-      "canal": "france-travail",
-      "offres": 1518
-    }
-  ]
+ "maj": "2026-09-29",
+ "metiers": [
+  {
+   "code": "M1718",
+   "libelle": "Chargé(e) de marketing digital"
+  },
+  {
+   "code": "M1716",
+   "libelle": "Directeur(trice) marketing digital"
+  },
+  {
+   "code": "M1705",
+   "libelle": "Responsable marketing"
+  },
+  {
+   "code": "M1703",
+   "libelle": "Chef(fe) de produit"
+  },
+  {
+   "code": "M1620",
+   "libelle": "Assistant(e) marketing"
+  },
+  {
+   "code": "M1706",
+   "libelle": "Chef(fe) de promotion des ventes"
+  },
+  {
+   "code": "M1430",
+   "libelle": "Chargé(e) d'études commerciales"
+  },
+  {
+   "code": "M1711",
+   "libelle": "Directeur(trice) du marketing"
+  }
+ ],
+ "canaux": [
+  {
+   "code": "france-travail",
+   "libelle": "France Travail",
+   "date": "2026-09-24",
+   "source": "France Travail — API Offres d'emploi v2",
+   "requete": "une requête codeROME par métier du groupe Marketing (8 métiers), France entière",
+   "n": 1518,
+   "postes": 1529,
+   "par_metier": {
+    "M1430": 299,
+    "M1620": 148,
+    "M1703": 299,
+    "M1705": 238,
+    "M1706": 94,
+    "M1711": 48,
+    "M1716": 270,
+    "M1718": 122
+   },
+   "alternance": 220,
+   "par_metier_alternance": {
+    "M1430": 8,
+    "M1620": 71,
+    "M1703": 14,
+    "M1705": 46,
+    "M1706": 10,
+    "M1711": 2,
+    "M1716": 27,
+    "M1718": 42
+   },
+   "contrats": {
+    "CDI": 887,
+    "Alternance": 220,
+    "Indépendant": 219,
+    "Intérim": 103,
+    "CDD": 88,
+    "Autre": 1
+   },
+   "diplome": {
+    "inconnu": 1406,
+    "7": 48,
+    "6": 39,
+    "5": 23,
+    "4": 2
+   },
+   "sources": {
+    "France Travail": 1518
+   },
+   "departements": {
+    "75": 179,
+    "92": 117,
+    "69": 68,
+    "inconnu": 68,
+    "59": 67,
+    "44": 58,
+    "13": 53,
+    "94": 43,
+    "78": 37,
+    "31": 33,
+    "93": 33,
+    "91": 31,
+    "06": 31,
+    "97": 31,
+    "33": 30,
+    "35": 29,
+    "38": 26,
+    "67": 22,
+    "77": 21,
+    "29": 18,
+    "34": 18,
+    "60": 17,
+    "49": 17,
+    "76": 16,
+    "79": 15,
+    "74": 15,
+    "27": 15,
+    "84": 14,
+    "62": 14,
+    "83": 14,
+    "85": 14,
+    "57": 13,
+    "51": 12,
+    "50": 12,
+    "63": 11,
+    "68": 11,
+    "26": 11,
+    "95": 11,
+    "86": 10,
+    "22": 10,
+    "14": 10,
+    "42": 10,
+    "56": 9,
+    "45": 9,
+    "01": 9,
+    "17": 8,
+    "21": 8,
+    "37": 8,
+    "53": 8,
+    "32": 8,
+    "71": 7,
+    "66": 7,
+    "72": 7,
+    "12": 7,
+    "54": 7,
+    "46": 6,
+    "19": 6,
+    "64": 6,
+    "11": 6,
+    "18": 5,
+    "40": 5,
+    "90": 5,
+    "02": 5,
+    "87": 5,
+    "25": 5,
+    "61": 5,
+    "07": 4,
+    "10": 4,
+    "30": 4,
+    "08": 4,
+    "04": 4,
+    "89": 4,
+    "03": 4,
+    "28": 4,
+    "47": 3,
+    "65": 3,
+    "41": 3,
+    "73": 3,
+    "80": 3,
+    "81": 3,
+    "16": 3,
+    "39": 3,
+    "82": 3,
+    "55": 2,
+    "88": 2,
+    "05": 2,
+    "52": 1,
+    "70": 1,
+    "36": 1,
+    "15": 1,
+    "43": 1,
+    "58": 1,
+    "24": 1
+   },
+   "zones": {
+    "Puy-de-Dôme": 11,
+    "Auvergne-Rhône-Alpes": 163,
+    "Île-de-France": 472
+   },
+   "fraicheur": {
+    "7 à 30 jours": 831,
+    "moins de 7 jours": 318,
+    "1 à 3 mois": 298,
+    "plus de 3 mois": 71
+   },
+   "teletravail": {
+    "non précisé": 1372,
+    "mentionné": 146
+   },
+   "salaire_affiche": 373
+  },
+  {
+   "code": "lba",
+   "libelle": "La bonne alternance",
+   "date": "2026-09-29",
+   "source": "API La bonne alternance (api.apprentissage.beta.gouv.fr) — /job/v1/search",
+   "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
+   "appels": 8,
+   "tronques": [],
+   "n": 107,
+   "postes": 130,
+   "par_metier": {
+    "M1718": 31,
+    "M1716": 11,
+    "M1705": 29,
+    "M1703": 7,
+    "M1620": 21,
+    "M1706": 5,
+    "M1430": 2,
+    "M1711": 1
+   },
+   "contrats": {
+    "Apprentissage": 46,
+    "Professionnalisation": 42,
+    "Apprentissage ou professionnalisation": 19
+   },
+   "diplome": {
+    "inconnu": 72,
+    "7": 14,
+    "5": 13,
+    "6": 6,
+    "4": 2
+   },
+   "sources": {
+    "France Travail": 60,
+    "offres_emploi_lba": 28,
+    "RH Alternance": 7,
+    "Meteojob": 5,
+    "OPCO EP": 2,
+    "annonces Atlas": 2,
+    "iquesta": 1,
+    "Talentplug": 1,
+    "Jobs that make sense": 1
+   },
+   "departements": {
+    "75": 27,
+    "92": 10,
+    "06": 5,
+    "94": 5,
+    "44": 5,
+    "13": 5,
+    "971": 3,
+    "60": 3,
+    "31": 3,
+    "91": 3,
+    "93": 2,
+    "89": 2,
+    "33": 2,
+    "74": 2,
+    "01": 2,
+    "95": 2,
+    "26": 2,
+    "83": 2,
+    "68": 2,
+    "50": 2,
+    "57": 1,
+    "84": 1,
+    "inconnu": 1,
+    "43": 1,
+    "45": 1,
+    "62": 1,
+    "63": 1,
+    "17": 1,
+    "59": 1,
+    "42": 1,
+    "71": 1,
+    "10": 1,
+    "76": 1,
+    "34": 1,
+    "35": 1,
+    "79": 1,
+    "05": 1,
+    "69": 1
+   },
+   "zones": {
+    "Puy-de-Dôme": 1,
+    "Auvergne-Rhône-Alpes": 10,
+    "Île-de-France": 49
+   },
+   "fraicheur": {
+    "7 à 30 jours": 53,
+    "1 à 3 mois": 30,
+    "moins de 7 jours": 22,
+    "plus de 3 mois": 2
+   },
+   "teletravail": {
+    "non précisé": 102,
+    "onsite": 4,
+    "hybrid": 1
+   },
+   "taille": {
+    "non précisée": 61,
+    "20 à 49 salariés": 9,
+    "Non diffusé": 8,
+    "10 à 19 salariés": 6,
+    "3 à 5 salariés": 5,
+    "6 à 9 salariés": 5,
+    "1 000 à 1 999 salariés": 3,
+    "50 à 99 salariés": 3,
+    "100 à 199 salariés": 3,
+    "250 à 499 salariés": 2,
+    "1 ou 2 salariés": 1,
+    "2 000 à 4 999 salariés": 1
+   },
+   "venues_de_france_travail": 60,
+   "retrouvees_dans_france_travail": 51
+  }
+ ],
+ "serie": [
+  {
+   "date": "2026-09-22",
+   "canal": "france-travail",
+   "offres": 1466
+  },
+  {
+   "date": "2026-09-23",
+   "canal": "france-travail",
+   "offres": 1485
+  },
+  {
+   "date": "2026-09-24",
+   "canal": "france-travail",
+   "offres": 1518
+  },
+  {
+   "date": "2026-09-29",
+   "canal": "lba",
+   "offres": 107
+  }
+ ]
 }
