@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Par canal — les métiers du marketing</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/commun.css?v=5">
+</head>
+<body>
+<main>
+  <div id="nav-ici"></div>
+  <h1>Par canal</h1>
+  <p class="sous" id="sous">Chargement des données…</p>
+
+  <div class="vide" id="seul" hidden>Un seul canal pour l'instant : France Travail. Pour ajouter La bonne alternance,
+    créer une clé sur <a href="https://api.apprentissage.beta.gouv.fr/compte/profil">api.apprentissage.beta.gouv.fr</a>
+    (type « production »), l'enregistrer dans les secrets du dépôt sous le nom <code>LBA_API_KEY</code>,
+    puis lancer l'Action <b>canaux</b> (onglet Actions → canaux → Run workflow).</div>
+
+  <div class="chiffres" id="chiffres" style="margin-top:16px"></div>
+
+  <div class="grille" style="margin-top:24px">
+    <div class="carte"><h3>Offres par métier, selon le canal</h3><div class="zone"><canvas id="g-metiers"></canvas></div>
+      <p class="note" id="n-metiers"></p></div>
+    <div class="carte"><h3>D'où viennent les offres <small>(sources déclarées par chaque canal)</small></h3><div class="zone"><canvas id="g-sources"></canvas></div>
+      <p class="note" id="n-sources"></p></div>
+    <div class="carte"><h3>Niveau de diplôme visé <small>(% des offres du canal)</small></h3><div class="zone"><canvas id="g-diplome"></canvas></div>
+      <p class="note" id="n-diplome"></p></div>
+    <div class="carte"><h3>Fraîcheur des annonces <small>(% des offres du canal)</small></h3><div class="zone"><canvas id="g-fraicheur"></canvas></div>
+      <p class="note" id="n-fraicheur"></p></div>
+    <div class="carte"><h3>Où sont les offres <small>(% des offres du canal)</small></h3><div class="zone"><canvas id="g-zones"></canvas></div>
+      <p class="note" id="n-zones"></p></div>
+    <div class="carte"><h3>Offres à chaque collecte</h3><div class="zone"><canvas id="g-serie"></canvas></div>
+      <p class="note" id="n-serie"></p></div>
+  </div>
+
+  <h2 id="limites-canaux">Ce que cette comparaison n'autorise pas à conclure</h2>
+  <p class="note">Les canaux ne couvrent pas le même marché : La bonne alternance ne publie que de l'alternance
+  (apprentissage, professionnalisation), France Travail tous les contrats — la barre « France Travail, alternance seulement »
+  est la seule comparaison à périmètre égal. Une même offre peut être publiée sur plusieurs canaux : La bonne alternance
+  reprend une partie des offres de France Travail, le recouvrement est mesuré plus haut quand il est connu.
+  Chaque canal est interrogé par code ROME ; l'API La bonne alternance plafonne ses réponses à 150 offres par source et par
+  recherche, la collecte est alors refaite département par département, et le fichier du canal signale les métiers encore tronqués.
+  La bonne alternance ne donne pas de salaire. Seuls les chiffres agrégés sont publiés ici : les conditions d'utilisation
+  de son API interdisent de communiquer les offres elles-mêmes à des tiers.</p>
+
+  <footer id="pied"></footer>
+</main>
+
+<script src="assets/commun.js?v=5"></script>
+<script>
+/* ============ Par canal ============
+   Lit data/canaux.json (fait par scripts/resumer_canaux.py). Un canal de plus dans ce fichier
+   = une série de plus dans chaque graphique, sans rien changer ici. */
+const TEINTES = { "france-travail": "#0a5cff", "lba": "#ff6a00" };
+const AUTRES = ["#34c759", "#af52de", "#ff2d55", "#5ac8fa"];
+const teinte = (c, i) => TEINTES[c.code] || AUTRES[i % AUTRES.length];
+const DIPLOMES = [["3", "CAP / BEP"], ["4", "Bac"], ["5", "Bac+2"], ["6", "Bac+3/4"], ["7", "Bac+5"], ["inconnu", "Non précisé"]];
+const FRAICHEUR = ["moins de 7 jours", "7 à 30 jours", "1 à 3 mois", "plus de 3 mois", "inconnue"];
+const ZONES = ["Puy-de-Dôme", "Auvergne-Rhône-Alpes", "Île-de-France"];
+const nf = n => (n || 0).toLocaleString("fr-FR");
+const part = (a, b) => b ? Math.round(1000 * a / b) / 10 : 0;
+const pctFr = (a, b) => part(a, b).toLocaleString("fr-FR") + " %";
+
+/* Barres groupées : une série par canal. valeur(c, cle) donne le nombre brut ; en % si enPct. */
+function groupees(id, cles, libelles, canaux, valeur, enPct, horizontal = false) {
+  zoneSelonBarres(id, horizontal ? cles.length * canaux.length : 0, 16);
+  dessiner(id, "bar",
+    { labels: libelles, datasets: canaux.map((c, i) => ({
+        label: c.libelle, backgroundColor: c.teinte || teinte(c, i), borderRadius: 3,
+        data: cles.map(k => enPct ? part(valeur(c, k), c.n) : (valeur(c, k) || 0)) })) },
+    { indexAxis: horizontal ? "y" : "x",
+      plugins: { legend: { display: true, position: "bottom", labels: { boxWidth: 12, boxHeight: 12 } },
+                 tooltip: { callbacks: { label: x => `${x.dataset.label} : ${x.parsed[horizontal ? "x" : "y"].toLocaleString("fr-FR")}${enPct ? " %" : " offres"}` } } },
+      scales: { x: { beginAtZero: true, grid: { display: !horizontal } },
+                y: { beginAtZero: true, grid: { display: horizontal }, ticks: { autoSkip: false } } } });
+}
+
+function rendre(C) {
+  const canaux = C.canaux, ft = canaux.find(c => c.code === "france-travail"), autres = canaux.filter(c => c !== ft);
+  const lib = Object.fromEntries(C.metiers.map(m => [m.code, m.libelle]));
+  document.getElementById("sous").innerHTML = canaux.map(c => `${c.libelle} : <b>${nf(c.n)}</b> offres au ${dateFr(c.date)}`).join(" · ")
+    + ` · ${C.metiers.length} métiers suivis`;
+  document.getElementById("seul").hidden = autres.length > 0;
+
+  // Chiffres-clés : un bloc par canal, plus l'alternance de France Travail (le seul périmètre commun).
+  document.getElementById("chiffres").innerHTML = canaux.map(c =>
+    `<div class="chiffre"><b>${nf(c.n)}</b><span>offres ${c.libelle}, au ${dateFr(c.date)}</span></div>`).join("")
+    + (ft ? `<div class="chiffre"><b>${nf(ft.alternance)}</b><span>dont en alternance chez France Travail (${pctFr(ft.alternance, ft.n)})</span></div>` : "");
+
+  // 1. Métiers. France Travail est montré deux fois : tous contrats, et alternance seulement.
+  const series = [];
+  if (ft) series.push(ft, { libelle: "France Travail, alternance seulement", teinte: "#a7c9ff", n: ft.alternance, par_metier: ft.par_metier_alternance || {} });
+  series.push(...autres);
+  const codes = C.metiers.map(m => m.code);
+  groupees("g-metiers", codes, codes.map(k => enLignes(lib[k], 26)), series, (c, k) => (c.par_metier || {})[k], false, true);
+  const lba = autres.find(c => c.code === "lba");
+  document.getElementById("n-metiers").textContent = lba && ft
+    ? `Au ${dateFr(lba.date)}, La bonne alternance compte ${nf(lba.n)} offres sur ces ${codes.length} métiers, contre ${nf(ft.alternance)} offres en alternance chez France Travail au ${dateFr(ft.date)} (${nf(ft.n)} tous contrats). Une offre rattachée à plusieurs codes ROME compte dans chacun.`
+    : ft ? `${nf(ft.n)} offres France Travail au ${dateFr(ft.date)}, dont ${nf(ft.alternance)} en alternance (${pctFr(ft.alternance, ft.n)}).` : "";
+
+  // 2. Sources : les 8 premières de chaque canal.
+  const toutes = new Map();
+  canaux.forEach(c => Object.entries(c.sources || {}).forEach(([s, n]) => toutes.set(s, (toutes.get(s) || 0) + n)));
+  const top = [...toutes].sort((a, b) => b[1] - a[1]).slice(0, 8).map(x => x[0]);
+  groupees("g-sources", top, top.map(s => enLignes(s, 26)), canaux, (c, k) => (c.sources || {})[k], true, true);
+  document.getElementById("n-sources").textContent = lba
+    ? `${pctFr(lba.venues_de_france_travail, lba.n)} des ${nf(lba.n)} offres de La bonne alternance (${dateFr(lba.date)}) viennent de France Travail ; ${nf(lba.retrouvees_dans_france_travail)} d'entre elles sont aussi dans nos ${nf(ft ? ft.n : 0)} offres France Travail. Le reste est propre au canal : c'est ce qu'il ajoute.`
+    : "France Travail est sa propre source. Les autres canaux déclarent d'où vient chaque offre (site de l'État, partenaires…).";
+
+  // 3. Diplôme visé.
+  groupees("g-diplome", DIPLOMES.map(d => d[0]), DIPLOMES.map(d => d[1]), canaux, (c, k) => (c.diplome || {})[k], true);
+  document.getElementById("n-diplome").textContent = canaux.map(c =>
+    `${c.libelle} : ${pctFr((c.diplome || {}).inconnu, c.n)} sans niveau précisé (n = ${nf(c.n)})`).join(" ; ")
+    + ". Les pourcentages de chaque niveau portent sur toutes les offres du canal, précisées ou non.";
+
+  // 4. Fraîcheur.
+  groupees("g-fraicheur", FRAICHEUR, FRAICHEUR.map(f => f[0].toUpperCase() + f.slice(1)), canaux, (c, k) => (c.fraicheur || {})[k], true);
+  document.getElementById("n-fraicheur").textContent = canaux.map(c =>
+    `${c.libelle} : ${pctFr((c.fraicheur || {})["moins de 7 jours"], c.n)} publiées depuis moins de 7 jours (n = ${nf(c.n)}, au ${dateFr(c.date)})`).join(" ; ") + ".";
+
+  // 5. Zones.
+  groupees("g-zones", ZONES, ZONES, canaux, (c, k) => (c.zones || {})[k], true);
+  document.getElementById("n-zones").textContent = canaux.map(c =>
+    `${c.libelle} : ${nf((c.zones || {})["Puy-de-Dôme"])} offres dans le Puy-de-Dôme (${pctFr((c.zones || {})["Puy-de-Dôme"], c.n)})`).join(" ; ")
+    + ". Département tiré du code postal du lieu de travail.";
+
+  // 6. Série.
+  const dates = [...new Set(C.serie.map(s => s.date))].sort();
+  dessiner("g-serie", "line",
+    { labels: dates.map(d => dateFr(d, true)), datasets: canaux.map((c, i) => ({
+        label: c.libelle, borderColor: teinte(c, i), backgroundColor: teinte(c, i), tension: .2, pointRadius: 4, spanGaps: true,
+        data: dates.map(d => (C.serie.find(s => s.date === d && s.canal === c.code) || {}).offres ?? null) })) },
+    { plugins: { legend: { display: true, position: "bottom", labels: { boxWidth: 12, boxHeight: 12 } } }, scales: { y: { beginAtZero: true } } });
+  document.getElementById("n-serie").textContent = dates.length < 2
+    ? "Une seule collecte pour l'instant : la tendance apparaîtra au fil des jours."
+    : `${dates.length} collectes, du ${dateFr(dates[0])} au ${dateFr(dates[dates.length - 1])}. Un canal ajouté en cours de route n'a pas de points avant sa première collecte.`;
+}
+
+poserNavEtFiltres();
+fetch("data/canaux.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(rendre)
+  .catch(() => { document.getElementById("sous").textContent = "Pas encore de data/canaux.json : lancer l'Action « canaux » (onglet Actions → canaux → Run workflow)."; });
+</script>
+</body>
+</html>

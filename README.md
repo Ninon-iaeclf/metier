@@ -1,6 +1,10 @@
 # Le marché de mon métier — les métiers du marketing
 
-### 👉 **[Voir le site : vincentfavarin.github.io/metier](https://vincentfavarin.github.io/metier/)**
+### 👉 **[Voir le site : ninon-iaeclf.github.io/metier](https://ninon-iaeclf.github.io/metier/)**
+
+Fork du dépôt [VincentFavarin/metier](https://github.com/VincentFavarin/metier) : seuls les **8 métiers du
+marketing** sont gardés, et un **deuxième canal de recrutement** est ajouté (La bonne alternance),
+pour comparer les offres selon le canal. Les liens des pages ci-dessous mènent au site d'origine.
 
 Le site est mis à jour chaque matin par une Action GitHub : elle interroge
 l'API France Travail, enregistre les offres du jour et publie les chiffres.
@@ -12,6 +16,7 @@ l'API France Travail, enregistre les offres du jour et publie les chiffres.
 | [Ce qu'on vous demande](https://vincentfavarin.github.io/metier/exigences.html) | expérience, diplôme, outils, compétences |
 | [Qui recrute](https://vincentfavarin.github.io/metier/recruteurs.html) | entreprises, secteurs, employeurs ouverts aux débutants |
 | [Le marché bouge](https://vincentfavarin.github.io/metier/mouvement.html) | les extractions successives, la fraîcheur des annonces |
+| [Par canal](https://ninon-iaeclf.github.io/metier/canaux.html) | France Travail et La bonne alternance côte à côte (ce fork) |
 
 Dossier de travail pour la séance « Écouter le marché de votre métier »
 (M2 MOD, IAE Clermont Auvergne). Dépôt de démonstration : il montre ce que
@@ -133,3 +138,25 @@ copy .env.example .env        (puis remplir avec ses identifiants francetravail.
   (GitHub) : jamais dans un fichier versionné.
 - Un canal, une requête, une date : chaque chiffre du site les affiche.
 - Pas de scraping de LinkedIn, APEC ou Indeed (interdit par leurs CGU).
+
+## Les canaux (ajout de ce fork)
+
+Un canal = une source d'offres interrogée automatiquement par une **API officielle**. Les sites
+qui l'interdisent dans leurs CGU (LinkedIn, Indeed, HelloWork, Welcome to the Jungle, APEC) ne sont
+pas collectés : leurs offres peuvent seulement être relevées à la main dans `offres-reperees.md`.
+
+| Canal | Script | Clé (secret du dépôt) | Ce qui est publié |
+|---|---|---|---|
+| France Travail | `scripts/extraire.py` + `scripts/resumer.py` | `FT_CLIENT_ID`, `FT_CLIENT_SECRET` | les offres (licence de l'API) |
+| La bonne alternance | `scripts/canal_lba.py` | `LBA_API_KEY` (type « production ») | **les chiffres seulement** : les CGU interdisent de communiquer les offres à des tiers |
+
+```
+scripts/canal_lba.py      →  data/canaux/lba.json      les chiffres du jour du canal
+                          →  data/canaux/serie.csv     une ligne par jour, par canal, par métier
+scripts/resumer_canaux.py →  data/canaux.json          tous les canaux côte à côte → canaux.html
+.github/workflows/canaux.yml : chaque matin à 7 h 30, après la veille ; sans clé, le canal est sauté
+```
+
+Ajouter un canal : écrire `scripts/canal_<nom>.py` qui produit `data/canaux/<nom>.json` avec les
+mêmes clés (`n`, `par_metier`, `contrats`, `diplome`, `sources`, `zones`, `fraicheur`…), l'appeler
+dans `canaux.yml` ; `resumer_canaux.py` et la page le prennent sans autre changement.
