@@ -34,7 +34,7 @@ RACINE = Path(__file__).resolve().parent.parent
 load_dotenv(RACINE / ".env")
 
 # Les métiers suivis : code ROME -> (libellé, groupe, coché par défaut sur la page).
-# Choisis pour le M2 Marketing Opérationnel et Digital ; la page permet de cocher/décocher.
+# Fork : seuls les 8 métiers du groupe Marketing sont gardés (le dépôt d'origine en suit 23).
 METIERS = {
     # Cœur marketing
     "M1718": ("Chargé(e) de marketing digital", "Marketing", True),
@@ -45,23 +45,6 @@ METIERS = {
     "M1706": ("Chef(fe) de promotion des ventes", "Marketing", True),
     "M1430": ("Chargé(e) d'études commerciales", "Marketing", True),
     "M1711": ("Directeur(trice) du marketing", "Marketing", True),
-    # Digital, contenu, e-commerce
-    "E1113": ("Responsable e-commerce", "Digital", True),
-    "D1438": ("Assistant(e) e-commerce", "Digital", True),
-    "E1101": ("Community manager", "Digital", True),
-    "E1124": ("Social media manager", "Digital", True),
-    "E1405": ("Référenceur(se) web (SEO)", "Digital", True),
-    "M1886": ("Chef(fe) de projet web", "Digital", True),
-    "M1426": ("Chief digital officer", "Digital", True),
-    "M1719": ("Chargé(e) des relations avec les influenceurs", "Digital", True),
-    "E1406": ("Influenceur(se) web", "Digital", True),
-    # Communication et commerce, à la frontière
-    "E1112": ("Chargé(e) de communication", "Frontière", False),
-    "E1103": ("Chargé(e) des relations publiques", "Frontière", False),
-    "E1107": ("Chef(fe) de projet événementiel", "Frontière", False),
-    "E1404": ("Assistant(e) en publicité", "Frontière", False),
-    "D1506": ("Chargé(e) de merchandising", "Frontière", False),
-    "D1415": ("Chargé(e) de relation client (CRM)", "Frontière", False),
 }
 
 TOKEN_URL = "https://entreprise.francetravail.fr/connexion/oauth2/access_token?realm=/partenaire"
