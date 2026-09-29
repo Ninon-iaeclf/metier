@@ -1,0 +1,48 @@
+# Les canaux : chaque matin, après la veille France Travail, GitHub interroge les autres
+# canaux de recrutement (La bonne alternance pour commencer), refait data/canaux.json
+# pour la page canaux.html, et enregistre le tout par un commit.
+# Clé : Settings -> Secrets and variables -> Actions -> New repository secret -> LBA_API_KEY.
+# Sans clé, le canal est sauté : la page montre alors France Travail seul.
+name: canaux
+
+on:
+  schedule:
+    - cron: "30 5 * * *"      # 5 h 30 UTC, une demi-heure après la veille France Travail
+  workflow_dispatch:          # et le bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: donnees              # une seule Action à la fois écrit dans data/
+  cancel-in-progress: false
+
+jobs:
+  canaux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Canal La bonne alternance
+        env:
+          LBA_API_KEY: ${{ secrets.LBA_API_KEY }}
+        run: python scripts/canal_lba.py
+
+      - name: Mettre les canaux côte à côte
+        run: python scripts/resumer_canaux.py
+
+      - name: Enregistrer les chiffres du jour (commit + push)
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "actions@github.com"
+          git add data
+          git commit -m "canaux : chiffres du $(date -u +%Y-%m-%d)" || echo "rien de nouveau"
+          git pull --rebase
+          git push

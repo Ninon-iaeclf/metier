@@ -1,6 +1,7 @@
 # La veille : chaque matin, GitHub lance l'extraction France Travail sur ses machines,
 # met à jour data/ et le résumé de la page, et enregistre le tout par un commit.
 # Les identifiants sont dans Settings -> Secrets and variables -> Actions (FT_CLIENT_ID, FT_CLIENT_SECRET).
+# Fork : sans ces identifiants, l'extraction est sautée (au lieu d'échouer chaque matin).
 name: veille
 
 on:
@@ -10,6 +11,10 @@ on:
 
 permissions:
   contents: write             # le workflow doit pouvoir pousser son commit
+
+concurrency:
+  group: donnees              # une seule Action à la fois écrit dans data/ (voir aussi canaux.yml)
+  cancel-in-progress: false
 
 jobs:
   extraire:
@@ -28,8 +33,10 @@ jobs:
           FT_CLIENT_ID: ${{ secrets.FT_CLIENT_ID }}
           FT_CLIENT_SECRET: ${{ secrets.FT_CLIENT_SECRET }}
         run: |
+          if [ -z "$FT_CLIENT_ID" ]; then echo "Pas d'identifiants France Travail : extraction sautée."; exit 0; fi
           python scripts/extraire.py
           python scripts/resumer.py
+          python scripts/resumer_canaux.py
 
       - name: Enregistrer la donnée du jour (commit + push)
         run: |
@@ -37,4 +44,5 @@ jobs:
           git config user.email "actions@github.com"
           git add data
           git commit -m "veille : offres du $(date -u +%Y-%m-%d)" || echo "rien de nouveau"
+          git pull --rebase
           git push
