@@ -198,37 +198,37 @@
   {
    "code": "lba",
    "libelle": "La bonne alternance",
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "source": "API La bonne alternance (api.apprentissage.beta.gouv.fr) — /job/v1/search",
    "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
    "appels": 8,
    "tronques": [],
-   "n": 106,
-   "postes": 129,
+   "n": 105,
+   "postes": 128,
    "par_metier": {
     "M1718": 31,
     "M1716": 11,
-    "M1705": 28,
+    "M1705": 27,
     "M1703": 7,
-    "M1620": 21,
+    "M1620": 20,
     "M1706": 5,
-    "M1430": 2,
+    "M1430": 3,
     "M1711": 1
    },
    "contrats": {
     "Apprentissage": 46,
-    "Professionnalisation": 42,
+    "Professionnalisation": 41,
     "Apprentissage ou professionnalisation": 18
    },
    "diplome": {
-    "inconnu": 72,
+    "inconnu": 70,
     "7": 13,
     "5": 13,
-    "6": 6,
+    "6": 7,
     "4": 2
    },
    "sources": {
-    "France Travail": 60,
+    "France Travail": 59,
     "offres_emploi_lba": 27,
     "RH Alternance": 7,
     "Meteojob": 5,
@@ -247,7 +247,6 @@
     "13": 5,
     "971": 3,
     "60": 3,
-    "31": 3,
     "91": 3,
     "93": 2,
     "89": 2,
@@ -255,6 +254,7 @@
     "74": 2,
     "01": 2,
     "95": 2,
+    "31": 2,
     "26": 2,
     "83": 2,
     "68": 2,
@@ -283,18 +283,18 @@
     "Île-de-France": 49
    },
    "fraicheur": {
-    "7 à 30 jours": 52,
-    "1 à 3 mois": 30,
-    "moins de 7 jours": 22,
+    "7 à 30 jours": 55,
+    "1 à 3 mois": 29,
+    "moins de 7 jours": 19,
     "plus de 3 mois": 2
    },
    "teletravail": {
-    "non précisé": 101,
+    "non précisé": 100,
     "onsite": 4,
     "hybrid": 1
    },
    "taille": {
-    "non précisée": 61,
+    "non précisée": 59,
     "20 à 49 salariés": 9,
     "Non diffusé": 8,
     "10 à 19 salariés": 6,
@@ -305,10 +305,11 @@
     "50 à 99 salariés": 2,
     "250 à 499 salariés": 2,
     "1 ou 2 salariés": 1,
-    "2 000 à 4 999 salariés": 1
+    "2 000 à 4 999 salariés": 1,
+    "500 à 999 salariés": 1
    },
-   "venues_de_france_travail": 60,
-   "retrouvees_dans_france_travail": 60
+   "venues_de_france_travail": 59,
+   "retrouvees_dans_france_travail": 59
   }
  ],
  "serie": [
@@ -341,6 +342,11 @@
    "date": "2026-09-29",
    "canal": "lba",
    "offres": 106
+  },
+  {
+   "date": "2026-09-30",
+   "canal": "lba",
+   "offres": 105
   }
  ]
 }
