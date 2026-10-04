@@ -1,38 +1,38 @@
 {
  "code": "lba",
  "libelle": "La bonne alternance",
- "date": "2026-10-03",
+ "date": "2026-10-04",
  "source": "API La bonne alternance (api.apprentissage.beta.gouv.fr) — /job/v1/search",
  "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
  "appels": 8,
  "tronques": [],
- "n": 99,
- "postes": 113,
+ "n": 98,
+ "postes": 112,
  "par_metier": {
   "M1718": 30,
   "M1716": 12,
   "M1705": 26,
   "M1703": 5,
-  "M1620": 20,
+  "M1620": 19,
   "M1706": 2,
   "M1430": 3,
   "M1711": 1
  },
  "contrats": {
-  "Apprentissage": 45,
-  "Professionnalisation": 40,
+  "Apprentissage": 42,
+  "Professionnalisation": 42,
   "Apprentissage ou professionnalisation": 14
  },
  "diplome": {
-  "inconnu": 70,
-  "7": 10,
+  "inconnu": 71,
   "5": 10,
-  "6": 6,
+  "7": 9,
+  "6": 5,
   "4": 3
  },
  "sources": {
-  "France Travail": 62,
-  "offres_emploi_lba": 22,
+  "France Travail": 63,
+  "offres_emploi_lba": 20,
   "RH Alternance": 5,
   "Meteojob": 4,
   "OPCO EP": 2,
@@ -42,18 +42,17 @@
   "Jobs that make sense": 1
  },
  "departements": {
-  "75": 24,
-  "92": 10,
+  "75": 25,
+  "92": 11,
   "13": 6,
-  "91": 4,
   "94": 4,
   "44": 4,
   "06": 3,
+  "91": 3,
   "60": 3,
   "93": 2,
   "89": 2,
   "33": 2,
-  "74": 2,
   "26": 2,
   "01": 2,
   "95": 2,
@@ -66,6 +65,7 @@
   "inconnu": 1,
   "77": 1,
   "43": 1,
+  "74": 1,
   "45": 1,
   "63": 1,
   "17": 1,
@@ -77,31 +77,30 @@
   "10": 1,
   "76": 1,
   "34": 1,
-  "35": 1,
   "79": 1,
   "05": 1
  },
  "zones": {
   "Puy-de-Dôme": 1,
-  "Auvergne-Rhône-Alpes": 10,
-  "Île-de-France": 47
+  "Auvergne-Rhône-Alpes": 9,
+  "Île-de-France": 48
  },
  "fraicheur": {
-  "7 à 30 jours": 48,
-  "1 à 3 mois": 27,
+  "7 à 30 jours": 46,
+  "1 à 3 mois": 28,
   "moins de 7 jours": 22,
   "plus de 3 mois": 2
  },
  "teletravail": {
-  "non précisé": 94,
+  "non précisé": 93,
   "onsite": 4,
   "hybrid": 1
  },
  "taille": {
-  "non précisée": 55,
-  "20 à 49 salariés": 9,
+  "non précisée": 56,
+  "20 à 49 salariés": 8,
   "Non diffusé": 7,
-  "10 à 19 salariés": 7,
+  "10 à 19 salariés": 6,
   "6 à 9 salariés": 5,
   "1 000 à 1 999 salariés": 3,
   "100 à 199 salariés": 3,
@@ -113,6 +112,6 @@
   "200 à 249 salariés": 1,
   "2 000 à 4 999 salariés": 1
  },
- "venues_de_france_travail": 62,
- "retrouvees_dans_france_travail": 61
+ "venues_de_france_travail": 63,
+ "retrouvees_dans_france_travail": 63
 }
