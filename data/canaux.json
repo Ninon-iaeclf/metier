@@ -199,84 +199,82 @@
   {
    "code": "lba",
    "libelle": "La bonne alternance",
-   "date": "2026-10-14",
+   "date": "2026-10-15",
    "source": "API La bonne alternance (api.apprentissage.beta.gouv.fr) — /job/v1/search",
    "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
    "appels": 8,
    "tronques": [],
-   "n": 104,
-   "postes": 119,
+   "n": 102,
+   "postes": 115,
    "par_metier": {
-    "M1718": 29,
-    "M1716": 6,
-    "M1705": 25,
+    "M1718": 32,
+    "M1716": 5,
+    "M1705": 23,
     "M1703": 4,
     "M1620": 16,
-    "M1706": 1,
-    "M1430": 6,
-    "M1711": 17
+    "M1706": 2,
+    "M1430": 5,
+    "M1711": 15
    },
    "contrats": {
-    "Apprentissage ou professionnalisation": 64,
-    "Apprentissage": 39,
+    "Apprentissage ou professionnalisation": 63,
+    "Apprentissage": 38,
     "Professionnalisation": 1
    },
    "diplome": {
-    "7": 32,
-    "inconnu": 32,
-    "6": 22,
-    "5": 11,
+    "inconnu": 36,
+    "7": 31,
+    "6": 19,
+    "5": 10,
     "3": 4,
-    "4": 3
+    "4": 2
    },
    "sources": {
-    "Hellowork": 50,
-    "offres_emploi_lba": 18,
+    "Hellowork": 46,
+    "offres_emploi_lba": 17,
     "France Travail": 16,
     "APEC": 5,
+    "ATS_Hellowork": 4,
     "Meteojob": 4,
     "RH Alternance": 3,
-    "ATS_Hellowork": 3,
+    "Direct Emploi": 2,
     "OPCO EP": 2,
     "Emploi Territorial": 1,
     "iquesta": 1,
     "Talentplug": 1
    },
    "departements": {
-    "75": 19,
-    "92": 14,
+    "75": 18,
+    "92": 16,
     "94": 6,
-    "44": 5,
     "78": 4,
     "31": 4,
+    "44": 4,
+    "69": 4,
     "84": 3,
     "93": 3,
     "60": 3,
+    "49": 3,
     "95": 3,
     "83": 3,
-    "69": 3,
     "06": 2,
     "33": 2,
     "13": 2,
     "59": 2,
     "01": 2,
-    "68": 2,
-    "49": 2,
-    "77": 2,
+    "34": 2,
     "27": 1,
     "85": 1,
     "43": 1,
     "45": 1,
     "63": 1,
-    "50": 1,
     "67": 1,
+    "68": 1,
     "73": 1,
     "972": 1,
-    "26": 1,
     "91": 1,
     "79": 1,
     "05": 1,
-    "34": 1,
     "72": 1,
     "70": 1,
     "19": 1,
@@ -285,39 +283,39 @@
    "zones": {
     "Puy-de-Dôme": 1,
     "Auvergne-Rhône-Alpes": 10,
-    "Île-de-France": 52
+    "Île-de-France": 51
    },
    "fraicheur": {
-    "7 à 30 jours": 65,
-    "moins de 7 jours": 21,
-    "1 à 3 mois": 14,
+    "7 à 30 jours": 62,
+    "moins de 7 jours": 24,
+    "1 à 3 mois": 12,
     "plus de 3 mois": 4
    },
    "teletravail": {
-    "non précisé": 72,
-    "onsite": 25,
+    "non précisé": 73,
+    "onsite": 22,
     "hybrid": 7
    },
    "taille": {
-    "non précisée": 28,
+    "non précisée": 29,
     "Non diffusé": 14,
-    "20 à 49 salariés": 8,
-    "1 000 à 1 999 salariés": 8,
-    "100 à 199 salariés": 6,
+    "1 000 à 1 999 salariés": 9,
+    "20 à 49 salariés": 7,
     "2 000 à 4 999 salariés": 6,
+    "500 à 999 salariés": 6,
+    "100 à 199 salariés": 6,
     "250 à 499 salariés": 5,
-    "500 à 999 salariés": 5,
     "1 ou 2 salariés": 4,
-    "5 000 à 9 999 salariés": 4,
     "3 à 5 salariés": 3,
     "6 à 9 salariés": 3,
     "50 à 99 salariés": 3,
     "200 à 249 salariés": 3,
-    "10 à 19 salariés": 2,
-    "10 000 salariés et plus": 2
+    "10 000 salariés et plus": 2,
+    "10 à 19 salariés": 1,
+    "5 000 à 9 999 salariés": 1
    },
    "venues_de_france_travail": 16,
-   "retrouvees_dans_france_travail": 15
+   "retrouvees_dans_france_travail": 14
   }
  ],
  "serie": [
@@ -500,6 +498,11 @@
    "date": "2026-10-14",
    "canal": "lba",
    "offres": 104
+  },
+  {
+   "date": "2026-10-15",
+   "canal": "lba",
+   "offres": 102
   }
  ]
 }
