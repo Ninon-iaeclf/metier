@@ -1,5 +1,5 @@
 {
- "maj": "2026-10-17",
+ "maj": "2026-10-18",
  "metiers": [
   {
    "code": "M1718",
@@ -38,15 +38,15 @@
   {
    "code": "france-travail",
    "libelle": "France Travail",
-   "date": "2026-10-17",
+   "date": "2026-10-18",
    "source": "France Travail — API Offres d'emploi v2",
    "requete": "une requête codeROME par métier, France entière",
-   "n": 1440,
-   "postes": 1456,
+   "n": 1441,
+   "postes": 1457,
    "par_metier": {
     "M1430": 342,
     "M1620": 126,
-    "M1703": 313,
+    "M1703": 314,
     "M1705": 205,
     "M1706": 81,
     "M1711": 41,
@@ -68,19 +68,19 @@
     "CDI": 867,
     "Indépendant": 197,
     "Alternance": 163,
-    "Intérim": 132,
+    "Intérim": 133,
     "CDD": 80,
     "Autre": 1
    },
    "diplome": {
-    "inconnu": 1333,
+    "inconnu": 1334,
     "7": 53,
     "6": 34,
     "5": 18,
     "4": 2
    },
    "sources": {
-    "France Travail": 1440
+    "France Travail": 1441
    },
    "departements": {
     "75": 180,
@@ -89,7 +89,7 @@
     "59": 56,
     "inconnu": 52,
     "44": 51,
-    "13": 50,
+    "13": 49,
     "94": 44,
     "78": 42,
     "91": 35,
@@ -125,11 +125,11 @@
     "85": 10,
     "50": 10,
     "01": 10,
+    "21": 9,
+    "22": 9,
     "17": 9,
     "11": 9,
-    "21": 8,
     "68": 8,
-    "22": 8,
     "57": 8,
     "12": 8,
     "86": 7,
@@ -184,16 +184,16 @@
     "Île-de-France": 460
    },
    "fraicheur": {
-    "7 à 30 jours": 682,
-    "moins de 7 jours": 459,
-    "1 à 3 mois": 235,
-    "plus de 3 mois": 64
+    "7 à 30 jours": 688,
+    "moins de 7 jours": 444,
+    "1 à 3 mois": 244,
+    "plus de 3 mois": 65
    },
    "teletravail": {
-    "non précisé": 1311,
-    "mentionné": 129
+    "non précisé": 1313,
+    "mentionné": 128
    },
-   "salaire_affiche": 374
+   "salaire_affiche": 375
   },
   {
    "code": "lba",
@@ -429,6 +429,11 @@
    "date": "2026-10-17",
    "canal": "france-travail",
    "offres": 1440
+  },
+  {
+   "date": "2026-10-18",
+   "canal": "france-travail",
+   "offres": 1441
   },
   {
    "date": "2026-09-29",
