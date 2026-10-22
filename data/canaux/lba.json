@@ -1,56 +1,56 @@
 {
  "code": "lba",
  "libelle": "La bonne alternance",
- "date": "2026-10-21",
+ "date": "2026-10-22",
  "source": "API La bonne alternance (api.apprentissage.beta.gouv.fr) — /job/v1/search",
  "requete": "une recherche par code ROME, France entière, découpée par département quand une source atteint 150 offres",
  "appels": 8,
  "tronques": [],
  "n": 89,
- "postes": 101,
+ "postes": 100,
  "par_metier": {
-  "M1718": 28,
+  "M1718": 26,
   "M1716": 5,
-  "M1705": 21,
+  "M1705": 19,
   "M1703": 4,
-  "M1620": 12,
+  "M1620": 14,
   "M1706": 1,
   "M1430": 4,
-  "M1711": 14
+  "M1711": 16
  },
  "contrats": {
-  "Apprentissage ou professionnalisation": 54,
-  "Apprentissage": 33,
-  "Professionnalisation": 2
+  "Apprentissage ou professionnalisation": 56,
+  "Apprentissage": 32,
+  "Professionnalisation": 1
  },
  "diplome": {
-  "inconnu": 30,
-  "7": 24,
+  "inconnu": 31,
+  "7": 25,
   "6": 21,
-  "5": 9,
-  "3": 3,
-  "4": 2
+  "5": 8,
+  "4": 2,
+  "3": 2
  },
  "sources": {
-  "Hellowork": 38,
+  "Hellowork": 39,
   "offres_emploi_lba": 16,
-  "France Travail": 14,
-  "ATS_Hellowork": 4,
+  "France Travail": 15,
   "Meteojob": 4,
+  "ATS_Hellowork": 4,
   "OPCO EP": 3,
   "RH Alternance": 3,
-  "APEC": 3,
   "Toulouse metropole": 1,
   "Taleez": 1,
   "Direct Emploi": 1,
+  "APEC": 1,
   "Emploi Territorial": 1
  },
  "departements": {
   "75": 14,
-  "92": 11,
+  "92": 10,
   "31": 5,
   "94": 5,
-  "78": 4,
+  "13": 4,
   "95": 4,
   "44": 4,
   "93": 3,
@@ -59,8 +59,8 @@
   "69": 3,
   "06": 2,
   "84": 2,
+  "78": 2,
   "33": 2,
-  "13": 2,
   "82": 2,
   "49": 2,
   "60": 2,
@@ -70,49 +70,50 @@
   "45": 1,
   "63": 1,
   "35": 1,
-  "67": 1,
   "68": 1,
   "73": 1,
   "972": 1,
   "79": 1,
+  "08": 1,
   "42": 1,
+  "77": 1,
   "72": 1,
   "70": 1
  },
  "zones": {
   "Puy-de-Dôme": 1,
   "Auvergne-Rhône-Alpes": 7,
-  "Île-de-France": 43
+  "Île-de-France": 41
  },
  "fraicheur": {
-  "7 à 30 jours": 59,
-  "moins de 7 jours": 15,
-  "1 à 3 mois": 12,
-  "plus de 3 mois": 3
+  "7 à 30 jours": 55,
+  "moins de 7 jours": 19,
+  "1 à 3 mois": 13,
+  "plus de 3 mois": 2
  },
  "teletravail": {
   "non précisé": 64,
-  "onsite": 18,
-  "hybrid": 7
+  "onsite": 19,
+  "hybrid": 6
  },
  "taille": {
-  "non précisée": 28,
+  "non précisée": 26,
   "Non diffusé": 12,
-  "20 à 49 salariés": 7,
-  "1 000 à 1 999 salariés": 6,
+  "20 à 49 salariés": 8,
+  "1 ou 2 salariés": 5,
   "500 à 999 salariés": 5,
   "250 à 499 salariés": 5,
-  "1 ou 2 salariés": 4,
+  "6 à 9 salariés": 4,
+  "1 000 à 1 999 salariés": 4,
   "2 000 à 4 999 salariés": 4,
+  "10 000 salariés et plus": 4,
   "3 à 5 salariés": 3,
-  "6 à 9 salariés": 3,
   "100 à 199 salariés": 3,
   "200 à 249 salariés": 3,
-  "10 000 salariés et plus": 3,
   "10 à 19 salariés": 1,
   "50 à 99 salariés": 1,
   "5 000 à 9 999 salariés": 1
  },
- "venues_de_france_travail": 14,
+ "venues_de_france_travail": 15,
  "retrouvees_dans_france_travail": 14
 }
